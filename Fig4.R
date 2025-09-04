@@ -119,7 +119,7 @@ tm <- forest_theme(refline_lty = c("solid"),
 
 # ---- Output ------------------------------------------------------------------
 
-pdf(file = paste0("Fig3.pdf"), width = 20, height = 10)
+pdf(file = paste0("Fig4.pdf"), width = 20, height = 10)
 
 forest(forest_dat[,c(1:10)],
             est = list(forest_dat$OR,
