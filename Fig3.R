@@ -96,11 +96,15 @@ overall_proportions <- cancer_allsites %>%
 ggplot(overall_proportions, aes(x = "", y = proportion, fill = region)) +
   geom_bar(stat = "identity", width = 1, color = "white") +
   coord_polar("y", start = 0) +
-  blank_theme +
+  theme_minimal() +
   scale_fill_manual(values = cbp1, name = "Region") +
   theme(axis.text.x=element_blank(), 
         legend.text=element_text(size=15), 
-        legend.title=element_text(size=15)) +
+        legend.title=element_text(size=15),
+        axis.title.y = element_blank(),
+        panel.border = element_blank(),
+        panel.grid   = element_blank(),
+        axis.ticks   = element_blank()) +
   ggrepel::geom_label_repel(
     data = overall_proportions,
     aes(x = 1, y = ypos, label = label),
@@ -109,7 +113,7 @@ ggplot(overall_proportions, aes(x = "", y = proportion, fill = region)) +
     force = 5,
     min.segment.length = 0,   
     segment.size = 0.2,
-    size = 5,
+    size = 7,
     show.legend = FALSE
   )
 
@@ -118,6 +122,7 @@ ggsave("Fig3A.pdf",
        device = cairo_pdf, bg = "white")
 
 dev.off()
+
 
 
 
