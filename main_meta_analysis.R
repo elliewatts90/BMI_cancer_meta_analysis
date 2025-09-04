@@ -441,11 +441,10 @@ for (c in cancer_list_ordered) {
   
   # Format P-values
   PValue_sum <- fmt_p(as.numeric(metares[["pval.random.w"]]))
-  Phet       <- fmt_p(as.numeric(metares[["pval.Q.b.random"]]))
-  
+
   # Format P-het
-  Het_grps <- my_round(metares[["pval.Q.b.random"]], n=3)
-  Het_grps <- (Het_grps = ifelse(Het_grps < 0.001, "< 0.001", round(Het_grps, 3)))
+  Het_grps <- metares[["pval.Q.b.random"]]
+  Het_grps <- pvalr(Het_grps)
   
   # Subgroup names (match ordering of the pooled vectors)
   Region <- metares[["bylevs"]]
