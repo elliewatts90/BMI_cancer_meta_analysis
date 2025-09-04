@@ -161,3 +161,4 @@ for (c in cancer_list){
   
 }
 
+fwrite(results, "MR_metaanalysis.csv")
