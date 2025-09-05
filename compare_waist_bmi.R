@@ -89,6 +89,8 @@ for (c in cancer_list) {
   LCI_sum <- exp(metares[["lower.random.w"]]) 
   UCI_sum <-  exp(metares[["upper.random.w"]]) 
   
+  se_vec <- metares[["seTE.random.w"]]
+  
   # By-subgroup p-values (random-effects) — as vector
   PValue_sum <- pvalr(metares[["pval.random.w"]])
   
@@ -114,8 +116,8 @@ for (c in cancer_list) {
   
 
   # Variances from 95% CIs : (CI width / (2*1.96))^2
-  var_BMI <- ((log(UCI_sum[idx_BMI]) - log(LCI_sum[idx_BMI])) / (2 * 1.96))^2
-  var_waist <- ((log(UCI_sum[idx_Waist]) - log(LCI_sum[idx_Waist])) / (2 * 1.96))^2
+  var_BMI <- se_vec[idx_BMI]^2
+  var_waist <- se_vec[idx_Waist]^2
   
   # Wald statistic for difference of two correlated estimates:
   # z = (log(RR_BMI) - log(RR_Waist)) / sqrt(var_BMI + var_Waist - 2*r*sqrt(var_BMI*var_Waist))
