@@ -2,7 +2,7 @@
 
 Code to run meta-analysis for the paper "Adiposity and cancer: systematic review and meta-analysis" based on the SupplementaryData.xlsx file, which is publicly available alongside the manuscript
 
-This repository contains R scripts used to conduct meta-analyses and generate figures for a research project examining the association between adiposity measures and cancer risk, using observational epidemiology and Mendelian randomization approaches.
+This repository contains R scripts used to conduct meta-analyses and generate figures for a research project examining the association between adiposity measures and cancer risk.
 
 The code supports primary analyses, sensitivity analyses, and manuscript figures.
 
